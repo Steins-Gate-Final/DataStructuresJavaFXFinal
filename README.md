@@ -1,7 +1,10 @@
 # DataStructuresFinal
 
 
-<h1>Made by Osman Yasir Ozyilmaz, Gunduzalp Dogrutekin, Abdullakh Said</h1>
+<h1>Made by:
+Osman Yasir Ozyilmaz
+Gunduzalp Dogrutekin
+Abdullakh Said</h1>
 
 Project for Data Structres Final
 
