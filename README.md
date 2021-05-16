@@ -1,9 +1,9 @@
 # DataStructuresFinal
 
+
+<h1>Made by Osman Yasir Ozyilmaz, Gunduzalp Dogrutekin, Abdullakh Said</h1>
+
 Project for Data Structres Final
-
-Made by Osman Yasir Ozyilmaz, Gunduzalp Dogrutekin, Abdullakh Said
-
 
 Simple JavaFX program which visualizes a binary search tree according to the numbers you give 
 
