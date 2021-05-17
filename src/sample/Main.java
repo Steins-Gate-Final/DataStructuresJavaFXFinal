@@ -3,6 +3,9 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -10,19 +13,21 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Main extends Application {
     static int count = 0;
+    int width = 1000;
+    int height = 600;
+
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Group group = new Group();
-        int width = 1000;
-        int height = 600;
 
         Scene scene = new Scene(group, width, height);
 
@@ -30,37 +35,47 @@ public class Main extends Application {
         primaryStage.show();
 
 
-        ArrayList<Integer> inputList = getInput();
+//        ArrayList<Integer> inputList = getInput();
+////        ArrayList<Integer> testlist = new ArrayList<Integer>(Arrays.asList(8,4,3,7,10,14,13,1,6));
+//        ArrayList<Node> ArrangedNodes = ArrangeNodes(inputList);
+//        drawNodeRecursive(width/2, 20, width/2, 20, ArrangedNodes.get(0), group);
+        VBox v = new VBox();
+        TextField text = new TextField();
+        Button but = new Button("Create BST");
+        but.setOnAction( e ->  getInput(text,group));
+        v.getChildren().addAll(text,but);
+        group.getChildren().add(v);
 
-//        ArrayList<Integer> testlist = new ArrayList<Integer>(Arrays.asList(8,4,3,7,10,14,13,1,6));
-
-        ArrayList<Node> ArrangedNodes = ArrangeNodes(inputList);
-        drawNodeRecursive(width/2, 20, width/2, 20, ArrangedNodes.get(0), group);
 
 
-
-
-        primaryStage.show();
 
 
     }
 
-    private synchronized ArrayList<Integer>  getInput() {
+    private synchronized ArrayList<Integer>  getInput(TextField t, Group group) {
         ArrayList<Integer> bstNumbers = new ArrayList<Integer>();
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter an Int for the bst. Type exit to exit");
-        while ( scan.hasNext()){
-            System.out.println("Enter next int");
-            String temp = scan.next();
-            if (temp.equals("exit")){
-                break;}
-            int num = Integer.parseInt(temp);
-            bstNumbers.add(num);
-        }
-        for (Integer intg:bstNumbers){
-            System.out.print(intg);
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("Enter an Int for the bst. Type exit to exit");
+//        while ( scan.hasNext()){
+//            System.out.println("Enter next int");
+//            String temp = scan.next();
+//            if (temp.equals("exit")){
+//                break;}
+//            int num = Integer.parseInt(temp);
+//            bstNumbers.add(num);
+//        }
+//        for (Integer intg:bstNumbers){
+//            System.out.print(intg);
+//
+//        }
+        String stringg = t.getText();
+        System.out.println(stringg);
+        String[] numbers = stringg.split(" ");
+        int[] ints = new int[numbers.length];
+        for(int c = 0; c < numbers.length; c++) {ints[c] = Integer.parseInt(numbers[c]); bstNumbers.add(ints[c]);}
+        ArrayList<Node> ArrangedNodes = ArrangeNodes(bstNumbers);
+        drawNodeRecursive(width/2, 20, width/2, 20, ArrangedNodes.get(0), group);
 
-        }
         return bstNumbers;
     }
 
