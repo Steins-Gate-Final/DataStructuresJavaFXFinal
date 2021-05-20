@@ -14,6 +14,7 @@ Project for Data Structres Final
 Simple JavaFX program which visualizes a binary search tree according to the numbers you give 
 
 
+
 How it works:
 Basically you just write some numbers with a space between them and press the button for a BST
 
